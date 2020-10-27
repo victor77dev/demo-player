@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Embed Demo Player with Production Config</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="description" content="Example of embeding Demo Player based on Bitmovin Player with our production config">
+</head>
+<body>
+    <div id="videoPlayer"></div>
+    <script type="module">
+        import {Video} from 'https://players.zattoo.com/bitmovin/production/video.js';
+
+        const url = 'https://demo-dash-live.zahs.tv/fullhd/manifest.mpd';
+        const licenseUrl = '';
+        const authToken = '';
+        const streamType = Video.StreamType.DASH;
+
+        Video.playStream(
+            url,
+            streamType,
+            licenseUrl ? licenseUrl : undefined,
+            authToken ? authToken : undefined,
+            'videoPlayer',
+        );
+    </script>
+</body>
+</html>
+
