@@ -17,13 +17,13 @@
         const authToken = '';
         const streamType = Video.StreamType.DASH;
 
-        Video.playStream(
+        Video.playStream({
             url,
             streamType,
-            licenseUrl ? licenseUrl : undefined,
-            authToken ? authToken : undefined,
-            'videoPlayer',
-        );
+            ...licenseUrl ? {licenseUrl} : undefined,
+            ...authToken ? {authToken} : undefined,
+            containerId: 'videoPlayer',
+        });
     </script>
 </body>
 </html>
